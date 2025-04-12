@@ -55,6 +55,31 @@ public class CuentaService
         return cuenta.Saldo;
     }
 
+    // Método que realiza una transacción de débito asociada a una tarjeta de débito
+    public async Task<bool> RealizarTransaccionDebito(string numeroTarjeta, decimal monto)
+    {
+        // Se obtiene la tarjeta correspondiente al número proporcionado
+        var tarjeta = await _tarjetaService.ObtenerTarjeta(numeroTarjeta);
+
+        // Se valida que la tarjeta exista y que sea del tipo "Débito"
+        if (tarjeta?.Tipo != "Débito") return false;
+
+        // Se obtiene la cuenta asociada a la tarjeta
+        var cuenta = await _cuentaService.ObtenerCuenta(tarjeta.CuentaAsociada);
+
+        // Se verifica que la cuenta exista y que tenga fondos suficientes
+        if (cuenta?.Saldo < monto) return false;
+
+        // Se descuenta el monto solicitado del saldo de la cuenta
+        cuenta.Saldo -= monto;
+
+        // Se actualiza el saldo de la tarjeta (aunque en débito, puede mantenerse por consistencia)
+        await _tarjetaService.ActualizarSaldo(numeroTarjeta, monto);
+
+        // Se confirma que la transacción fue realizada con éxito
+        return true;
+    }
+
     // Método para eliminar una cuenta por ID
     public async Task<bool> EliminarCuenta(int id)
     {
