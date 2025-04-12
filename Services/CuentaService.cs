@@ -94,6 +94,35 @@ public class CuentaService
         return await GuardarCambios();
     }
 
+    /// <summary>
+    /// Valida si una cuenta pertenece a un cliente específico.
+    /// </summary>
+    /// <param name="cuentaId">ID de la cuenta a verificar</param>
+    /// <param name="clienteId">ID del cliente que se desea validar como propietario</param>
+    /// <returns>True si la cuenta pertenece al cliente, False en caso contrario</returns>
+    public async Task<bool> ValidarPropiedadCuenta(int cuentaId, int clienteId)
+    {
+        // Obtiene la cuenta según su ID
+        var cuenta = await ObtenerCuentaPorId(cuentaId);
+
+        // Retorna true si la cuenta existe y pertenece al cliente especificado
+        return cuenta?.ClienteId == clienteId;
+    }
+
+    /// <summary>
+    /// Obtiene el saldo actual de una cuenta específica.
+    /// </summary>
+    /// <param name="cuentaId">ID de la cuenta</param>
+    /// <returns>Saldo actual de la cuenta. Retorna 0 si no se encuentra la cuenta</returns>
+    public async Task<decimal> ObtenerSaldo(int cuentaId)
+    {
+        // Busca la cuenta por su ID
+        var cuenta = await ObtenerCuentaPorId(cuentaId);
+
+        // Retorna el saldo si la cuenta existe; de lo contrario, retorna 0
+        return cuenta?.Saldo ?? 0;
+    }
+
     // Método privado para guardar los cambios en el almacenamiento JSON
     private async Task<bool> GuardarCambios()
     {
