@@ -1,0 +1,311 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\models\\pagoprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:models\\pagoprestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\controllers\\transferenciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:controllers\\transferenciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\controllers\\tarjetascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:controllers\\tarjetascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:controllers\\reportescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\controllers\\prestamoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:controllers\\prestamoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\controllers\\movimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:controllers\\movimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\controllers\\cuentascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:controllers\\cuentascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\models\\tarjeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:models\\tarjeta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\models\\reportemora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:models\\reportemora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\models\\reporteasesorescredito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:models\\reporteasesorescredito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\models\\prestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:models\\prestamo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|c:\\users\\abarc\\onedrive\\documentos\\github\\casotecbank\\models\\transferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CF4D4B-5D2C-4E29-8C00-33282226B274}|TecBankApi.csproj|solutionrelative:models\\transferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TransferenciasController.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\TransferenciasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TransferenciasController.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\TransferenciasController.cs",
+              "RelativeToolTip": "Controllers\\TransferenciasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:08:46.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReportesController.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\ReportesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReportesController.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\ReportesController.cs",
+              "RelativeToolTip": "Controllers\\ReportesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:08:45.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PrestamosController.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\PrestamosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PrestamosController.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\PrestamosController.cs",
+              "RelativeToolTip": "Controllers\\PrestamosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:08:44.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MovimientosController.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\MovimientosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MovimientosController.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\MovimientosController.cs",
+              "RelativeToolTip": "Controllers\\MovimientosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:08:44.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CuentasController.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\CuentasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CuentasController.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\CuentasController.cs",
+              "RelativeToolTip": "Controllers\\CuentasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:08:43.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-12T06:08:02.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PagoPrestamo.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\PagoPrestamo.cs",
+              "RelativeDocumentMoniker": "Models\\PagoPrestamo.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\PagoPrestamo.cs",
+              "RelativeToolTip": "Models\\PagoPrestamo.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwAUAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T05:49:23.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TarjetasController.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\TarjetasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TarjetasController.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\TarjetasController.cs",
+              "RelativeToolTip": "Controllers\\TarjetasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:08:46.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ComprasController.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\ComprasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ComprasController.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\ComprasController.cs",
+              "RelativeToolTip": "Controllers\\ComprasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:08:42.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ClientesController.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\ClientesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClientesController.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Controllers\\ClientesController.cs",
+              "RelativeToolTip": "Controllers\\ClientesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:08:42.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-12T06:07:23.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T06:06:18.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Prestamo.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\Prestamo.cs",
+              "RelativeDocumentMoniker": "Models\\Prestamo.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\Prestamo.cs",
+              "RelativeToolTip": "Models\\Prestamo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T03:41:22.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ReporteAsesoresCredito.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\ReporteAsesoresCredito.cs",
+              "RelativeDocumentMoniker": "Models\\ReporteAsesoresCredito.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\ReporteAsesoresCredito.cs",
+              "RelativeToolTip": "Models\\ReporteAsesoresCredito.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T02:57:59.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ReporteMora.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\ReporteMora.cs",
+              "RelativeDocumentMoniker": "Models\\ReporteMora.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\ReporteMora.cs",
+              "RelativeToolTip": "Models\\ReporteMora.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T02:51:08.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\Rol.cs",
+              "RelativeDocumentMoniker": "Models\\Rol.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\Rol.cs",
+              "RelativeToolTip": "Models\\Rol.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T02:42:36.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Tarjeta.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\Tarjeta.cs",
+              "RelativeDocumentMoniker": "Models\\Tarjeta.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\Tarjeta.cs",
+              "RelativeToolTip": "Models\\Tarjeta.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA1wC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T02:35:28.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Transferencia.cs",
+              "DocumentMoniker": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\Transferencia.cs",
+              "RelativeDocumentMoniker": "Models\\Transferencia.cs",
+              "ToolTip": "C:\\Users\\abarc\\OneDrive\\Documentos\\GitHub\\CasoTecBank\\Models\\Transferencia.cs",
+              "RelativeToolTip": "Models\\Transferencia.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T02:24:15.192Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
