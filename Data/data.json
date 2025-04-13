@@ -1,0 +1,40 @@
+{
+  "Clientes": [
+    {
+      "ClienteId": 1,
+      "NombreCompleto": "Juan Pérez",
+      "Cedula": "103450678",
+      "Direccion": "San José",
+      "Telefono": "8888-8888",
+      "IngresoMensual": 2500.00,
+      "TipoCliente": "Físico",
+      "Usuario": "juanperez",
+      "PasswordHash": "$2a$11$V4W...hashed"
+    }
+  ],
+  "Cuentas": [
+    {
+      "CuentaId": 1,
+      "NumeroCuenta": "CR123456789",
+      "Descripcion": "Cuenta Principal",
+      "Moneda": "Colones",
+      "TipoCuenta": "Ahorros",
+      "ClienteId": 1,
+      "Saldo": 150000.00
+    }
+  ],
+  "Tarjetas": [
+    {
+      "TarjetaId": 1,
+      "Tipo": "Crédito",
+      "Numero": "4111111111111111",
+      "FechaExpiracion": "2025-12-31",
+      "CVV": "123",
+      "LimiteCredito": 500000.00,
+      "SaldoDisponible": 500000.00,
+      "ClienteId": 1
+    }
+  ],
+  "TipoCambioUSD": 570.50,
+  "TipoCambioEUR": 620.30
+}
