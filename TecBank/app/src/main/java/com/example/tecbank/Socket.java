@@ -1,6 +1,9 @@
 package com.example.tecbank;
 
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -16,7 +19,7 @@ public class Socket {
         new Thread(() -> {
             try {
                 // Cambiar a la dirección IP de su servidor
-                socket = new java.net.Socket("172.18.186.210", 1717);
+                socket = new java.net.Socket("192.168.50.184", 1717);
                 out = new PrintWriter(socket.getOutputStream(), true);
                 in = new Scanner(socket.getInputStream());
                 dataOut = new DataOutputStream(socket.getOutputStream());

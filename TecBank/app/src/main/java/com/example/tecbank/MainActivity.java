@@ -1,20 +1,18 @@
 package com.example.tecbank;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.InputType;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText editTextPassword;
     private ImageButton imageButtonShowHidePassword;
-
-
     private boolean isPasswordVisible = false; // Flag para manejar el estado de visibilidad
-
     private boolean pantallaInicioSesionAbierta;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity(); // Esto cierra todas las actividades en la pila
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         buttonlogin.setOnClickListener(view -> {
             String userEmail = ((EditText) findViewById(R.id.nombreusuario)).getText().toString();
             String password = ((EditText) findViewById(R.id.password)).getText().toString();
+            //String usuario = editTextMessage.getText().toString();
+            //String contrasena = editTextPassword.getText().toString();
 
 
             // Validar campos vacíos
@@ -103,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
                 Socket.sendMessage(messageSend);
             }
         });
+
+
     }
     // Método para cambiar el fondo de un campo a rojo temporalmente
     private void marcarCampoTemporalmente(EditText editText) {
