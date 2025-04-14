@@ -15,6 +15,7 @@ namespace TecBankApi.Controllers
         // Dependencias necesarias para las operaciones con asesores y préstamos
         private readonly AsesorService _asesorService;
         private readonly PrestamoService _prestamoService;
+        private readonly ReporteComisiones? _reporteComiciones;
 
         /// <summary>
         /// Constructor que recibe los servicios necesarios mediante inyección de dependencias.
@@ -102,5 +103,20 @@ namespace TecBankApi.Controllers
             public decimal MetaColones { get; set; }
             public decimal MetaDolares { get; set; }
         }
+
+        /// <summary>
+        /// Obtener asesor por ID (Admin y Asesor).
+        /// </summary>
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Asesor")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var asesor = await _asesorService.ObtenerAsesorPorId(id);
+            if (asesor == null)
+                return NotFound(new { success = false, message = "Asesor no encontrado" });
+
+            return Ok(new { success = true, data = asesor });
+        }
+
     }
 }

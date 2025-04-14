@@ -88,5 +88,17 @@ namespace TecBankApi.Services
             await _storage.GuardarEntidad(_asesores);
             return true;
         }
+
+        /// <summary>
+        /// Obtiene un asesor por su ID.
+        /// </summary>
+        /// <param name="id">ID del asesor a buscar</param>
+        /// <returns>El asesor si se encuentra, o null si no existe</returns>
+        public async Task<AsesorCredito?> ObtenerAsesorPorId(int id)
+        {
+            var asesor = _asesores.FirstOrDefault(a => a.AsesorId == id);
+            return await Task.FromResult(asesor);
+        }
+
     }
 }

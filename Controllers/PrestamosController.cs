@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using TecBankApi.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using TecBankApi.Services;
 
 namespace TecBankApi.Controllers
 {
@@ -28,7 +29,8 @@ namespace TecBankApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetPrestamo(int id)
         {
-            var prestamo = _context.Prestamos.Find(id);
+            var prestamo = _context.ObtenerPorId(id);
+
             if (prestamo == null)
             {
                 return NotFound();
@@ -70,7 +72,7 @@ namespace TecBankApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeletePrestamo(int id)
         {
-            var prestamo = _context.Prestamos.Find(id);
+            var prestamo = _context.ObtenerPorId(id);
             if (prestamo == null)
             {
                 return NotFound();

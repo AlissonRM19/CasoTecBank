@@ -1,24 +1,49 @@
-
 using TecBankApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TecBankApi.Services
 {
     public class PrestamoService
     {
-        private readonly List<Prestamo> _prestamos;
+        public List<Prestamo> Prestamos { get; set; }
 
         public PrestamoService()
         {
-            // Ejemplo de lista provisional. En producción esto vendría de una base de datos o JSON.
-            _prestamos = new List<Prestamo>();
+            Prestamos = new List<Prestamo>();
         }
 
-        /// <summary>
-        /// Genera un reporte de comisiones para un asesor en un mes y año específicos.
-        /// </summary>
-        public ReporteComisiones GenerarReporteComisiones(int asesorId, int mes, int año)
+        public Prestamo? ObtenerPorId(int id)
         {
-            var prestamos = _prestamos
+            return Prestamos.FirstOrDefault(p => p.Id_Prestamo == id);
+        }
+
+
+        public void Add(Prestamo prestamo)
+        {
+            Prestamos.Add(prestamo);
+        }
+
+        public void Remove(Prestamo prestamo)
+        {
+            Prestamos.Remove(prestamo);
+        }
+
+        public void SaveChanges()
+        {
+            // Como no hay base de datos real, no se hace nada aquí.
+            // En un proyecto real, aquí se guardarían los cambios al JSON o DB.
+        }
+
+        public void Entry(Prestamo prestamo)
+        {
+            // En EF esto marca un objeto como modificado.
+            // Aquí no hace nada porque la lista es en memoria.
+            // Esta función se deja para compatibilidad con el controlador.
+        }
+
+        public async Task<ReporteComisiones> GenerarReporteComisiones(int asesorId, int mes, int año)
+        {
+            var prestamos = Prestamos
                 .Where(p => p.Ced_acesor == asesorId &&
                             p.FechaAprobacion.Month == mes &&
                             p.FechaAprobacion.Year == año)
@@ -33,52 +58,25 @@ namespace TecBankApi.Services
             };
         }
 
-        /// <summary>
-        /// Agrega un nuevo préstamo (para pruebas o para persistencia si no hay base de datos).
-        /// </summary>
-        public void AgregarPrestamo(Prestamo prestamo)
-        {
-            _prestamos.Add(prestamo);
-        }
-
-        public List<Prestamo> ObtenerTodos()
-        {
-            return _prestamos;
-        }
-
-        public Prestamo? ObtenerPorId(int id)
-        {
-            return _prestamos.FirstOrDefault(p => p.Id_Prestamo == id);
-        }
-
-        public void EliminarPrestamo(int id)
-        {
-            var prestamo = ObtenerPorId(id);
-            if (prestamo != null)
-                _prestamos.Remove(prestamo);
-        }
-
         public void ActualizarPrestamo(Prestamo actualizado)
         {
-            var existente = ObtenerPorId(actualizado.Id_Prestamo);
+            var existente = Find(actualizado.Id_Prestamo);
             if (existente != null)
             {
-                //existente.Monto_original = actualizado.Monto_original;
                 existente.Saldo = actualizado.Saldo;
                 existente.Ced_Cliente = actualizado.Ced_Cliente;
                 existente.Interes = actualizado.Interes;
                 existente.Ced_acesor = actualizado.Ced_acesor;
-                //existente.Moneda = actualizado.Moneda;
                 existente.FechaAprobacion = actualizado.FechaAprobacion;
             }
         }
+    }
 
-        public class ReporteComisiones
-        {
-            public decimal TotalColones { get; set; }
-            public decimal TotalDolares { get; set; }
-            public decimal ComisionesColones { get; set; }
-            public decimal ComisionesDolares { get; set; }
-        }
+    public class ReporteComisiones
+    {
+        public decimal TotalColones { get; set; }
+        public decimal TotalDolares { get; set; }
+        public decimal ComisionesColones { get; set; }
+        public decimal ComisionesDolares { get; set; }
     }
 }

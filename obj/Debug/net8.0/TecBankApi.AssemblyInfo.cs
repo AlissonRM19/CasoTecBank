@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TecBankApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1bfb46940a813465fdfea956e17bd1097c60916")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+870e8333b5bd3956d53fea60d18c005dc2aff4d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("TecBankApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TecBankApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
