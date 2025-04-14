@@ -1,6 +1,7 @@
 using TecBankApi.Models;                // Se importan los modelos, incluyendo Cliente.
 using TecBankApi.Helpers;              // Se importan utilidades como el servicio de almacenamiento y hasheo de contraseñas.
-using System.Text.RegularExpressions;  // Para validar patrones con expresiones regulares.
+using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Identity;
 
 namespace TecBankApi.Services
 {
@@ -127,7 +128,7 @@ namespace TecBankApi.Services
         {
             try
             {
-                await _storage.SaveData(_clientes);
+                await _storage.GuardarEntidad(_clientes);
                 return true;
             }
             catch
@@ -136,5 +137,10 @@ namespace TecBankApi.Services
                 return false;
             }
         }
+        public async Task<bool> ClienteExiste(int clienteId)
+        {
+            return await Task.FromResult(_clientes.Any(c => c.ClienteId == clienteId));
+        }
+
     }
 }

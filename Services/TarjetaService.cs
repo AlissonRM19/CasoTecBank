@@ -23,7 +23,9 @@ namespace TecBankApi.Services
         {
             _storage = storage;
             _clienteService = clienteService;
-            _tarjetas = _storage.LoadData<List<Tarjeta>>().Result ?? new List<Tarjeta>();
+            //_tarjetas = _storage.LoadData<List<Tarjeta>>().Result ?? new List<Tarjeta>();
+            _tarjetas = _storage.Tarjetas ?? new List<Tarjeta>();
+
         }
 
         /// <summary>
@@ -37,47 +39,47 @@ namespace TecBankApi.Services
         public async Task<Tarjeta?> CrearTarjeta(Tarjeta tarjeta)
         {
             // Si no se proporciona un número de tarjeta, se genera automáticamente uno válido
-            if (string.IsNullOrEmpty(tarjeta.Numero))
-                tarjeta.Numero = GenerarNumeroTarjetaValido();
+            if (string.IsNullOrEmpty(tarjeta.N_Tarjeta.ToString()))
+                tarjeta.N_Tarjeta = Convert.ToInt32(GenerarNumeroTarjetaValido());
             // Si se proporciona, se valida que tenga formato de 16 dígitos
-            else if (!Regex.IsMatch(tarjeta.Numero, NumeroTarjetaPattern))
+            else if (!Regex.IsMatch(tarjeta.N_Tarjeta.ToString(), NumeroTarjetaPattern))
                 throw new ValidationException("Formato de tarjeta inválido");
 
             // Validación de la fecha de expiración: debe ser al menos un mes en el futuro
-            if (tarjeta.FechaExpiracion < DateTime.Now.AddMonths(1))
+            if (tarjeta.Fecha_Expira < DateTime.Now.AddMonths(1))
                 throw new ValidationException("La fecha de expiración debe ser al menos 1 mes en el futuro");
 
             // Se verifica si el cliente asociado existe
-            if (!await _clienteService.ClienteExiste(tarjeta.ClienteId))
+            if (!await _clienteService.ClienteExiste(tarjeta.Ced_Cliente))
                 throw new ValidationException("Cliente no registrado");
 
             // Se verifica que el número de tarjeta sea único
-            if (_tarjetas.Any(t => t.Numero == tarjeta.Numero))
+            if (_tarjetas.Any(t => t.N_Tarjeta == tarjeta.N_Tarjeta))
                 return null;
 
             // Lógica particular según el tipo de tarjeta
-            if (tarjeta.Tipo == "Crédito")
+            if (tarjeta.Tipo_Tarjeta == "Crédito")
             {
                 // Se valida que tenga un límite de crédito válido
-                if (tarjeta.LimiteCredito <= 0)
+                if (tarjeta.Credito <= 0)
                     throw new ValidationException("Límite de crédito inválido");
 
                 // El saldo disponible se iguala al límite
-                tarjeta.SaldoDisponible = tarjeta.LimiteCredito;
+                tarjeta.Saldo = tarjeta.Credito;
             }
-            else if (tarjeta.Tipo == "Débito")
+            else if (tarjeta.Tipo_Tarjeta == "Débito")
             {
                 // Una tarjeta de débito requiere una cuenta asociada
-                if (string.IsNullOrEmpty(tarjeta.CuentaAsociada))
+                if (string.IsNullOrEmpty(tarjeta.Cuenta_aso.ToString()))
                     throw new ValidationException("Cuenta asociada requerida para débito");
             }
 
             // Se asigna un ID único a la tarjeta
-            tarjeta.TarjetaId = _tarjetas.Any() ? _tarjetas.Max(t => t.TarjetaId) + 1 : 1;
+            tarjeta.N_Tarjeta = _tarjetas.Any() ? _tarjetas.Max(t => t.N_Tarjeta) + 1 : 1;
 
             // Se guarda la tarjeta en la lista y en almacenamiento
             _tarjetas.Add(tarjeta);
-            await _storage.SaveData(_tarjetas);
+            await _storage.GuardarEntidad(_tarjetas); 
             return tarjeta;
         }
 
@@ -87,11 +89,11 @@ namespace TecBankApi.Services
         public async Task<bool> EliminarTarjeta(int id)
         {
             // Se busca la tarjeta por ID
-            var tarjeta = _tarjetas.FirstOrDefault(t => t.TarjetaId == id);
+            var tarjeta = _tarjetas.FirstOrDefault(t => t.N_Tarjeta == id);
             if (tarjeta == null) return false;
 
             // En tarjetas de crédito, sólo se puede eliminar si no ha sido usada
-            if (tarjeta.Tipo == "Crédito" && tarjeta.SaldoDisponible != tarjeta.LimiteCredito)
+            if (tarjeta.Tipo_Tarjeta == "Crédito" && tarjeta.Saldo != tarjeta.Credito)
                 return false;
 
             _tarjetas.Remove(tarjeta);
@@ -101,12 +103,12 @@ namespace TecBankApi.Services
         /// <summary>
         /// Verifica si un cliente es dueño de una tarjeta específica.
         /// </summary>
-        public async Task<bool> ValidarPropietario(string numeroTarjeta, int clienteId)
+        public async Task<bool> ValidarPropietario(int numeroTarjeta, int clienteId)
         {
             return await Task.FromResult(
                 _tarjetas.Any(t =>
-                    t.Numero == numeroTarjeta &&
-                    t.ClienteId == clienteId
+                    t.N_Tarjeta == numeroTarjeta &&
+                    t.Ced_Cliente == clienteId
                 )
             );
         }
@@ -114,18 +116,18 @@ namespace TecBankApi.Services
         /// <summary>
         /// Actualiza el saldo disponible de una tarjeta de crédito después de una transacción.
         /// </summary>
-        public async Task ActualizarSaldo(string numeroTarjeta, decimal monto)
+        public async Task ActualizarSaldo(int numeroTarjeta, decimal monto)
         {
-            var tarjeta = _tarjetas.FirstOrDefault(t => t.Numero == numeroTarjeta);
+            var tarjeta = _tarjetas.FirstOrDefault(t => t.N_Tarjeta == numeroTarjeta);
             if (tarjeta == null || monto <= 0) return;
 
             // Solo se actualiza el saldo si es tarjeta de crédito
-            if (tarjeta.Tipo == "Crédito")
+            if (tarjeta.Tipo_Tarjeta == "Crédito")
             {
-                if (tarjeta.SaldoDisponible < monto)
+                if (tarjeta.Saldo < monto)
                     throw new InvalidOperationException("Saldo insuficiente");
 
-                tarjeta.SaldoDisponible -= monto;
+                tarjeta.Saldo -= Convert.ToInt32(monto);
             }
 
             await GuardarCambios();
@@ -158,8 +160,8 @@ namespace TecBankApi.Services
         public async Task<List<Tarjeta>> ObtenerTarjetasPorCliente(int clienteId)
         {
             return await Task.FromResult(
-                _tarjetas.Where(t => t.ClienteId == clienteId)
-                         .OrderByDescending(t => t.TarjetaId)
+                _tarjetas.Where(t => t.Ced_Cliente == clienteId)
+                         .OrderByDescending(t => t.N_Tarjeta)
                          .ToList()
             );
         }
@@ -169,7 +171,7 @@ namespace TecBankApi.Services
         {
             try
             {
-                await _storage.SaveData(_tarjetas);
+                await _storage.GuardarEntidad(_tarjetas);
                 return true;
             }
             catch
@@ -177,40 +179,6 @@ namespace TecBankApi.Services
                 return false;
             }
         }
-    }
-
-    // Modelo que representa una tarjeta de crédito o débito
-    public class Tarjeta
-    {
-        public int TarjetaId { get; set; } // ID único de la tarjeta
-
-        [Required(ErrorMessage = "Tipo de tarjeta requerido")]
-        [RegularExpression("Crédito|Débito", ErrorMessage = "Tipo inválido")]
-        public string Tipo { get; set; } = "Débito"; // Tipo de tarjeta
-
-        [Required(ErrorMessage = "Número de tarjeta requerido")]
-        [CreditCard(ErrorMessage = "Número inválido")]
-        public string Numero { get; set; } = string.Empty; // Número de tarjeta
-
-        [Required(ErrorMessage = "Fecha de expiración requerida")]
-        [FutureDate(ErrorMessage = "Debe ser fecha futura")]
-        public DateTime FechaExpiracion { get; set; } // Fecha de expiración
-
-        [Required(ErrorMessage = "CVV requerido")]
-        [StringLength(4, MinimumLength = 3, ErrorMessage = "CVV inválido")]
-        public string CVV { get; set; } = string.Empty; // Código de seguridad
-
-        [Range(0, double.MaxValue, ErrorMessage = "Límite inválido")]
-        public decimal LimiteCredito { get; set; } // Límite de crédito (solo tarjetas de crédito)
-
-        [Range(0, double.MaxValue, ErrorMessage = "Saldo inválido")]
-        public decimal SaldoDisponible { get; set; } // Saldo disponible (para crédito)
-
-        [StringLength(20, ErrorMessage = "Cuenta inválida")]
-        public string? CuentaAsociada { get; set; } // Cuenta asociada (para débito)
-
-        [Required(ErrorMessage = "Cliente requerido")]
-        public int ClienteId { get; set; } // ID del cliente propietario
     }
 
     // Atributo de validación personalizado para asegurar que la fecha sea futura

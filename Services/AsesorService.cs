@@ -24,7 +24,8 @@ namespace TecBankApi.Services
         {
             _storage = storage;
             // Carga los datos desde almacenamiento; si no hay datos, crea una lista vacía
-            _asesores = _storage.LoadData<List<AsesorCredito>>().Result ?? new List<AsesorCredito>();
+            _asesores = _storage.Asesores ?? new List<AsesorCredito>();
+
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace TecBankApi.Services
 
             // Agrega el asesor a la lista y guarda los datos
             _asesores.Add(asesor);
-            await _storage.SaveData(_asesores);
+            await _storage.GuardarEntidad(_asesores);
 
             return asesor;
         }
@@ -63,7 +64,7 @@ namespace TecBankApi.Services
             else if (moneda == "USD")
                 asesor.ComisionesDolares += monto * 0.03m;
 
-            await _storage.SaveData(_asesores);
+            await _storage.GuardarEntidad(_asesores);
         }
 
         /// <summary>
@@ -84,7 +85,7 @@ namespace TecBankApi.Services
             asesor.MetaVentasDolares = metaDolares;
 
             // Guarda los cambios
-            await _storage.SaveData(_asesores);
+            await _storage.GuardarEntidad(_asesores);
             return true;
         }
     }

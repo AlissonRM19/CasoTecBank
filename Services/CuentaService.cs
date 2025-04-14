@@ -1,3 +1,6 @@
+using TecBankApi.Models;
+using TecBankApi.Services;
+
 public class CuentaService
 {
     private readonly JsonStorageService _storage;           // Servicio que maneja el almacenamiento de datos en JSON
@@ -38,7 +41,8 @@ public class CuentaService
 
         // Agrega la cuenta a la lista y guarda los datos
         Cuentas.Add(cuenta);
-        return await _storage.GuardarDatos();
+        await _storage.GuardarDatos();
+        return true;
     }
 
     /// <summary>
@@ -68,7 +72,8 @@ public class CuentaService
         if (cuenta == null) return false;
 
         Cuentas.Remove(cuenta);
-        return await _storage.GuardarDatos();
+        await _storage.GuardarDatos();
+        return true ;
     }
 
     /// <summary>

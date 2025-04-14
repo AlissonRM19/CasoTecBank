@@ -57,6 +57,7 @@ namespace TecBankApi.Models
         public int N_Cuenta { get; set; }
 
         // Si querés manejar relaciones con otras entidades:
-        // public Cuenta Cuenta { get; set; }
+        public int Cuenta_aso { get; set; }
+
     }
 }

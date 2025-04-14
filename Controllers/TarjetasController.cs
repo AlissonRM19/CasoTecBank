@@ -1,7 +1,6 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using TecBankApi.Models;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using TecBankApi.Services;
 
 namespace TecBankApi.Controllers
@@ -10,77 +9,71 @@ namespace TecBankApi.Controllers
     [ApiController]
     public class TarjetaController : ControllerBase
     {
-        private readonly TarjetaService _context;
+        private readonly TarjetaService _tarjetaService;
 
-        public TarjetaController(TarjetaService context)
+        public TarjetaController(TarjetaService tarjetaService)
         {
-            _context = context;
+            _tarjetaService = tarjetaService;
         }
 
         // GET: api/Tarjeta
         [HttpGet]
-        public IActionResult GetTarjetas()
+        public async Task<IActionResult> GetTarjetas()
         {
-            var tarjetas = _context.Tarjetas.ToList();
+            var tarjetas = await _tarjetaService.ObtenerTodasTarjetas();
+            return Ok(tarjetas);
+        }
+
+        // GET: api/Tarjeta/cliente/5
+        [HttpGet("cliente/{clienteId}")]
+        public async Task<IActionResult> GetTarjetasPorCliente(int clienteId)
+        {
+            var tarjetas = await _tarjetaService.ObtenerTarjetasPorCliente(clienteId);
             return Ok(tarjetas);
         }
 
         // GET: api/Tarjeta/5
         [HttpGet("{id}")]
-        public IActionResult GetTarjeta(int id)
+        public async Task<IActionResult> GetTarjeta(int id)
         {
-            var tarjeta = _context.Tarjetas.Find(id);
+            var tarjetas = await _tarjetaService.ObtenerTodasTarjetas();
+            var tarjeta = tarjetas.FirstOrDefault(t => t.N_Tarjeta == id);
             if (tarjeta == null)
-            {
                 return NotFound();
-            }
             return Ok(tarjeta);
         }
 
         // POST: api/Tarjeta
         [HttpPost]
-        public IActionResult PostTarjeta(Tarjeta tarjeta)
+        public async Task<IActionResult> PostTarjeta([FromBody] Tarjeta tarjeta)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
-            _context.Tarjetas.Add(tarjeta);
-            _context.SaveChanges();
-
-            return CreatedAtAction(nameof(GetTarjeta), new { id = tarjeta.N_Tarjeta }, tarjeta);
-        }
-
-        // PUT: api/Tarjeta/5
-        [HttpPut("{id}")]
-        public IActionResult PutTarjeta(int id, Tarjeta tarjeta)
-        {
-            if (id != tarjeta.N_Tarjeta)
+            try
             {
-                return BadRequest();
+                var nuevaTarjeta = await _tarjetaService.CrearTarjeta(tarjeta);
+                if (nuevaTarjeta == null)
+                    return Conflict("El número de tarjeta ya existe.");
+
+                return CreatedAtAction(nameof(GetTarjeta), new { id = nuevaTarjeta.N_Tarjeta }, nuevaTarjeta);
             }
-
-            _context.Entry(tarjeta).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            _context.SaveChanges();
-
-            return NoContent();
+            catch (ValidationException ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
 
         // DELETE: api/Tarjeta/5
         [HttpDelete("{id}")]
-        public IActionResult DeleteTarjeta(int id)
+        public async Task<IActionResult> DeleteTarjeta(int id)
         {
-            var tarjeta = _context.Tarjetas.Find(id);
-            if (tarjeta == null)
-            {
-                return NotFound();
-            }
-
-            _context.Tarjetas.Remove(tarjeta);
-            _context.SaveChanges();
+            var eliminado = await _tarjetaService.EliminarTarjeta(id);
+            if (!eliminado)
+                return NotFound("No se pudo eliminar la tarjeta. Asegúrese de que no haya sido usada.");
 
             return NoContent();
         }
     }
 }
+

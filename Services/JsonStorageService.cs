@@ -65,6 +65,8 @@ namespace TecBankApi.Services
         public List<Movimiento> Movimientos => _datos.Movimientos;
         public List<AsesorCredito> Asesores => _datos.Asesores;
         public List<Rol> Roles => _datos.Roles;
+        public List<CompraTarjeta> ComprasTarjeta => _datos.ComprasTarjeta;
+
 
         // Propiedades para acceder y modificar el tipo de cambio
         public decimal TipoCambioUSD
@@ -78,5 +80,29 @@ namespace TecBankApi.Services
             get => _datos.TipoCambioEUR;
             set => _datos.TipoCambioEUR = value;
         }
+        public async Task GuardarEntidad<T>(List<T> entidad)
+        {
+            if (typeof(T) == typeof(Cliente))
+                _datos.Clientes = entidad.Cast<Cliente>().ToList();
+            else if (typeof(T) == typeof(Cuenta))
+                _datos.Cuentas = entidad.Cast<Cuenta>().ToList();
+            else if (typeof(T) == typeof(Tarjeta))
+                _datos.Tarjetas = entidad.Cast<Tarjeta>().ToList();
+            else if (typeof(T) == typeof(Prestamo))
+                _datos.Prestamos = entidad.Cast<Prestamo>().ToList();
+            else if (typeof(T) == typeof(Movimiento))
+                _datos.Movimientos = entidad.Cast<Movimiento>().ToList();
+            else if (typeof(T) == typeof(AsesorCredito))
+                _datos.Asesores = entidad.Cast<AsesorCredito>().ToList();
+            else if (typeof(T) == typeof(Rol))
+                _datos.Roles = entidad.Cast<Rol>().ToList();
+            else if (typeof(T) == typeof(CompraTarjeta)) 
+                _datos.ComprasTarjeta = entidad.Cast<CompraTarjeta>().ToList();
+            else
+                throw new InvalidOperationException($"Tipo {typeof(T).Name} no soportado.");
+
+            await GuardarDatos();
+        }
+
     }
 }

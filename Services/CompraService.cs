@@ -21,7 +21,9 @@ namespace TecBankApi.Services
         {
             _storage = storage;
             // Carga los datos desde el archivo JSON o crea una lista vacía si no existen
-            _compras = _storage.LoadData<List<CompraTarjeta>>().Result ?? new List<CompraTarjeta>();
+            _compras = _storage.ComprasTarjeta ?? new List<CompraTarjeta>();
+
+
         }
 
         /// <summary>
@@ -40,7 +42,7 @@ namespace TecBankApi.Services
                 _compras.Add(compra);
 
                 // Guarda la lista actualizada en el almacenamiento
-                await _storage.SaveData(_compras);
+                await _storage.GuardarEntidad(_compras);
 
                 // Retorna la compra registrada
                 return compra;

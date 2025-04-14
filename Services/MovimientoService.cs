@@ -21,7 +21,8 @@ namespace TecBankApi.Services
         {
             _storage = storage;
             // Carga los movimientos existentes, si no hay ninguno, inicializa lista vacía.
-            _movimientos = _storage.LoadData<List<Movimiento>>().Result ?? new List<Movimiento>();
+            _movimientos = _storage.Movimientos ?? new List<Movimiento>();
+
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace TecBankApi.Services
                 _movimientos.Add(movimiento);
 
                 // Guarda la lista actualizada en el almacenamiento JSON.
-                await _storage.SaveData(_movimientos);
+                await _storage.GuardarEntidad(_movimientos);
 
                 return movimiento;
             }
