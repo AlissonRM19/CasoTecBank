@@ -7,16 +7,16 @@ import UserDashboard from './Pages/UserDashboard';
 import Navbar from './Components/Navbar/Navbar';
 
 function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/user" element={<UserDashboard />} />
-      </Routes>
-    </Router>
-  );
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<LoginForm />} />
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/user" element={<UserDashboard />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
