@@ -10,12 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// Configurar CORS para desarrollo
+// Configurar CORS para el frontend React
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("ReactPolicy", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:3000") // URL del frontend React
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -97,7 +97,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("AllowAll");
+app.UseCors("ReactPolicy"); // Aplicar la política de CORS configurada para React
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
