@@ -74,8 +74,8 @@ export const CardsUser = () => {
         <input type="text" placeholder='Ingrese el numero de tarjeta' size="23"
         onChange={cardChanger}
         />
-        <input type="text" placeholder='Ingrese la 1era fecha' size="16"/>
-        <input type="text" placeholder='Ingrese la 2da fecha' size="15"/>
+        <input type="date"/>
+        <input type="date"/>
       <div className="table-header">
         <h2 className="table-title">Tarjetas</h2>
         <button className="add-button">
