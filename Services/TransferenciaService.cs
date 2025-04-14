@@ -23,7 +23,7 @@ namespace TecBankApi.Services
         public TransferenciaService(JsonStorageService storage)
         {
             _storage = storage;
-            _transferencias = _storage. ?? new List<Transferencia>();
+            _transferencias = _storage.transferencias?? new List<Transferencia>();
         }
 
         /// <summary>
