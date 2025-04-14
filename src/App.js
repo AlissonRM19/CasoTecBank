@@ -9,7 +9,6 @@ import Navbar from './Components/Navbar/Navbar';
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" element={<LoginForm />} />
         <Route path="/admin" element={<AdminDashboard />} />

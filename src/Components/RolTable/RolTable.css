@@ -1,0 +1,194 @@
+.table-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-title {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.add-button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+.icon-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-icon {
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s ease;
+}.table-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.4); /* Fondo más oscuro */
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-title {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .add-button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-button:hover {
+    background-color: #45a049;
+  }
+  
+  .icon-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .action-icon {
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s ease;
+  }
+  
+  .action-icon.edit {
+    color: #4caf50;
+  }
+  
+  .action-icon.delete {
+    color: #f44336;
+  }
+  
+  .action-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Estilos de tabla: forzamos fondo y texto legible */
+  div.rdt_Table {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+  
+  div.rdt_TableHead {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  div.rdt_TableCol {
+    color: #000000 !important;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  div.rdt_TableCell {
+    color: #000000 !important;
+    justify-content: center;
+    font-size: 15px;
+    padding: 12px 15px;
+  }
+  
+  div.rdt_TableRow {
+    min-height: 60px;
+    justify-content: center;
+  }
+  
+
+.action-icon.edit {
+    color: #4caf50;
+}
+
+.action-icon.delete {
+    color: #f44336;
+}
+
+.action-icon:hover {
+    transform: scale(1.2);
+}
+
+div.rdt_Pagination {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+  
+  .rdt_Pagination button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 6px;
+    padding: 5px 10px;
+    transition: background-color 0.2s ease;
+    border-radius: 8px;
+  }
+  
+  .rdt_Pagination button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .rdt_Pagination .rdt_Pagination-btn--selected {
+    background-color: #4caf50;
+    color: #fff;
+  }
