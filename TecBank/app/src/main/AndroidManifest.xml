@@ -28,6 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Declarar la actividad registro_casa -->
+        <activity android:name=".VistaAdministrador"></activity>
+
+        <!-- Declarar la actividad registro_casa -->
+        <activity android:name=".VistaCliente"></activity>
     </application>
 
 </manifest>
