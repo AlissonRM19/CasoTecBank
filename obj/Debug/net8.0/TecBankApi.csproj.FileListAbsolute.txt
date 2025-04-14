@@ -28,3 +28,13 @@ C:\Users\abarc\OneDrive\Documentos\GitHub\CasoTecBank\obj\Debug\net8.0\refint\Te
 C:\Users\abarc\OneDrive\Documentos\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.pdb
 C:\Users\abarc\OneDrive\Documentos\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.genruntimeconfig.cache
 C:\Users\abarc\OneDrive\Documentos\GitHub\CasoTecBank\obj\Debug\net8.0\ref\TecBankApi.dll
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.AssemblyInfoInputs.cache
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.AssemblyInfo.cs
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.csproj.CoreCompileInputs.cache
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.sourcelink.json
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.dll
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\refint\TecBankApi.dll
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.pdb
+C:\Users\rodla\Documents\GitHub\CasoTecBank\obj\Debug\net8.0\TecBankApi.csproj.AssemblyReference.cache

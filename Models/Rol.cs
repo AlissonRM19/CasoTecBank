@@ -1,34 +1,24 @@
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.ComponentModel.DataAnnotations;
 
-public class Rol
+namespace TecBankApi.Models
 {
-    #region Variables Privadas
-
-    private string? _Nombre;
-    private string? _Descripcion;
-
-    #endregion
-
-    #region Metodos
-
-    public Rol(string nombre, string descripcion)
+    /// <summary>
+    /// Modelo que representa un rol de usuario dentro del sistema.
+    /// </summary>
+    public class Rol
     {
-        _Nombre = nombre;
-        _Descripcion = descripcion;
+        /// <summary>
+        /// Nombre del rol. Es el identificador principal.
+        /// </summary>
+        [Key]
+        [Required(ErrorMessage = "Nombre del rol requerido")]
+        [StringLength(50, ErrorMessage = "Máximo 50 caracteres")]
+        public string Nombre { get; set; }
+
+        /// <summary>
+        /// Descripción del rol.
+        /// </summary>
+        [StringLength(200, ErrorMessage = "Máximo 200 caracteres")]
+        public string Descripcion { get; set; } = string.Empty;
     }
-
-    public Rol()
-    {
-        _Nombre = string.Empty;
-        _Descripcion = string.Empty;
-    }
-
-    #endregion
-
-    #region Variables Publicas
-
-    public string Nombre { get => _Nombre; set => _Nombre = value; }
-    public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
-
-    #endregion
 }

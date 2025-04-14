@@ -1,3 +1,5 @@
+using TecBankApi.Models;
+
 namespace TecBankApi.Data
 {
     /// <summary>

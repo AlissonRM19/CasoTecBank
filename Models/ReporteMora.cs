@@ -1,42 +1,47 @@
-public class ReporteMora
+using System.ComponentModel.DataAnnotations;
+
+namespace TecBankApi.Models
 {
-    #region Variables Privadas
-
-    private int _ID_ReporteMora;
-    private int _ced_Cliente;
-    private int _Cedula_Cliente;
-    private int _Numero_Prestamo;
-    private int _Cuotas_Vencidas;
-    private int _Monto_Adecuado;
-
-    #endregion
-
-    #region Metodos
-
-    public ReporteMora(int iD_ReporteMora, int cliente, int cedula_Cliente, int numero_Prestamo, int cuotas_Vencidas, int monto_Adecuado)
+    /// <summary>
+    /// Modelo que representa un reporte de mora de un cliente.
+    /// </summary>
+    public class ReporteMora
     {
-        _ID_ReporteMora = iD_ReporteMora;
-        _ced_Cliente = cliente;
-        _Cedula_Cliente = cedula_Cliente;
-        _Numero_Prestamo = numero_Prestamo;
-        _Cuotas_Vencidas = cuotas_Vencidas;
-        _Monto_Adecuado = monto_Adecuado;
+        /// <summary>
+        /// Identificador único del reporte de mora.
+        /// </summary>
+        [Key]
+        public int ID_ReporteMora { get; set; }
+
+        /// <summary>
+        /// Cédula del cliente asociada al reporte (valor 1).
+        /// </summary>
+        [Required(ErrorMessage = "Campo ced_Cliente requerido")]
+        public int Ced_Cliente { get; set; }
+
+        /// <summary>
+        /// Cédula del cliente asociada al reporte (valor 2, si corresponde).
+        /// </summary>
+        public int Cedula_Cliente { get; set; }
+
+        /// <summary>
+        /// Número del préstamo que tiene cuotas vencidas.
+        /// </summary>
+        [Required(ErrorMessage = "Número de préstamo requerido")]
+        public int Numero_Prestamo { get; set; }
+
+        /// <summary>
+        /// Cantidad de cuotas vencidas en el préstamo.
+        /// </summary>
+        [Required(ErrorMessage = "Cantidad de cuotas vencidas requerida")]
+        [Range(1, int.MaxValue, ErrorMessage = "Debe haber al menos una cuota vencida")]
+        public int Cuotas_Vencidas { get; set; }
+
+        /// <summary>
+        /// Monto que se adeuda por el préstamo vencido.
+        /// </summary>
+        [Required(ErrorMessage = "Monto adeudado requerido")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "El monto adeudado debe ser mayor a 0")]
+        public int Monto_Adecuado { get; set; }
     }
-    public ReporteMora()
-    {
-
-    }
-
-    #endregion
-
-    #region Variables Publicas
-
-    public int ID_ReporteMora { get => _ID_ReporteMora; set => _ID_ReporteMora = value; }
-    public int ced_Cliente { get => _ced_Cliente; set => _ced_Cliente = value; }
-    public int Cedula_Cliente { get => _Cedula_Cliente; set => _Cedula_Cliente = value; }
-    public int Numero_Prestamo { get => _Numero_Prestamo; set => _Numero_Prestamo = value; }
-    public int Cuotas_Vencidas { get => _Cuotas_Vencidas; set => _Cuotas_Vencidas = value; }
-    public int Monto_Adecuado { get => _Monto_Adecuado; set => _Monto_Adecuado = value; }
-
-    #endregion
 }

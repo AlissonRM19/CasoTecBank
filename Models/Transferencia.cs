@@ -1,39 +1,47 @@
-public class Transferencia
+using System.ComponentModel.DataAnnotations;
+
+namespace TecBankApi.Models
 {
-    #region Variables Privadas
-
-    private int _ID_transferencia;
-    private int _cuenta_destino;
-    private int _cuenta_Origen;
-    private int _monto;
-    private DateTime _fecha;
-
-    #endregion
-
-    #region Metodos
-
-    public Transferencia(int iD_transferencia, int cuenta_destino, int cuenta_Origen, int monto, DateTime fecha)
+    /// <summary>
+    /// Modelo que representa una transferencia bancaria entre dos cuentas.
+    /// </summary>
+    public class Transferencia
     {
-        _ID_transferencia = iD_transferencia;
-        _cuenta_destino = cuenta_destino;
-        _cuenta_Origen = cuenta_Origen;
-        _monto = monto;
-        _fecha = fecha;
+        /// <summary>
+        /// Identificador único de la transferencia.
+        /// </summary>
+        [Key]
+        public int ID_Transferencia { get; set; }
+
+        /// <summary>
+        /// Número de cuenta destino de la transferencia.
+        /// </summary>
+        [Required(ErrorMessage = "Cuenta destino requerida")]
+        public int Cuenta_Destino { get; set; }
+
+        /// <summary>
+        /// Número de cuenta origen de la transferencia.
+        /// </summary>
+        [Required(ErrorMessage = "Cuenta origen requerida")]
+        public int Cuenta_Origen { get; set; }
+
+        /// <summary>
+        /// Monto de la transferencia.
+        /// Debe ser mayor a 0.01.
+        /// </summary>
+        [Required(ErrorMessage = "Monto requerido")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Monto mínimo: 0.01")]
+        public decimal Monto { get; set; }
+
+        /// <summary>
+        /// Fecha en que se realizó la transferencia.
+        /// Valor por defecto: fecha y hora actual.
+        /// </summary>
+        [Required(ErrorMessage = "Fecha requerida")]
+        public DateTime Fecha { get; set; } = DateTime.Now;
+
+        // Opcionalmente podrías incluir relaciones a entidades Cuenta si las tenés
+        // public Cuenta CuentaOrigen { get; set; }
+        // public Cuenta CuentaDestino { get; set; }
     }
-    public Transferencia()
-    {
-
-    }
-
-    #endregion
-
-    #region Varibles publicas
-
-    public int ID_transferencia { get => _ID_transferencia; set => _ID_transferencia = value; }
-    public int Cuenta_destino { get => _cuenta_destino; set => _cuenta_destino = value; }
-    public int Cuenta_Origen { get => _cuenta_Origen; set => _cuenta_Origen = value; }
-    public int Monto { get => _monto; set => _monto = value; }
-    public DateTime Fecha { get => _fecha; set => _fecha = value; }
-
-    #endregion
 }

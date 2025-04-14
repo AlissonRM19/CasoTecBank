@@ -1,48 +1,62 @@
-public class Tarjeta
+using System.ComponentModel.DataAnnotations;
+
+namespace TecBankApi.Models
 {
-    #region Variables Privadas
-
-    private int _N_Tarjeta;
-    private string? _Tipo_Tarjeta;
-    private int _ced_Cliente;
-    private DateTime _Fecha_Expira;
-    private int _N_Seguridad;
-    private int? _Credito;
-    private int? _Saldo;
-    private int _N_Cuenta;
-
-    #endregion
-
-    #region Metodos
-
-    public Tarjeta() 
+    /// <summary>
+    /// Modelo que representa una tarjeta bancaria (crédito o débito).
+    /// Cada tarjeta está asociada a un cliente y a una cuenta.
+    /// </summary>
+    public class Tarjeta
     {
-        
+        /// <summary>
+        /// Número único de la tarjeta.
+        /// </summary>
+        [Key]
+        public int N_Tarjeta { get; set; }
+
+        /// <summary>
+        /// Tipo de tarjeta: "Crédito" o "Débito".
+        /// </summary>
+        [Required(ErrorMessage = "Tipo de tarjeta requerido")]
+        [RegularExpression("Crédito|Débito", ErrorMessage = "Tipos válidos: Crédito/Débito")]
+        public string Tipo_Tarjeta { get; set; }
+
+        /// <summary>
+        /// Cédula del cliente dueño de la tarjeta.
+        /// </summary>
+        [Required(ErrorMessage = "Cédula del cliente requerida")]
+        public int Ced_Cliente { get; set; }
+
+        /// <summary>
+        /// Fecha de vencimiento de la tarjeta.
+        /// </summary>
+        [Required(ErrorMessage = "Fecha de expiración requerida")]
+        public DateTime Fecha_Expira { get; set; }
+
+        /// <summary>
+        /// Número de seguridad de la tarjeta (CVV).
+        /// </summary>
+        [Required(ErrorMessage = "Número de seguridad requerido")]
+        [Range(100, 9999, ErrorMessage = "El número de seguridad debe tener entre 3 y 4 dígitos")]
+        public int N_Seguridad { get; set; }
+
+        /// <summary>
+        /// Límite de crédito de la tarjeta (solo si es de crédito).
+        /// </summary>
+        public int? Credito { get; set; }
+
+        /// <summary>
+        /// Saldo actual de la tarjeta.
+        /// </summary>
+        public int? Saldo { get; set; }
+
+        /// <summary>
+        /// Número de cuenta asociada a la tarjeta.
+        /// </summary>
+        [Required(ErrorMessage = "Número de cuenta requerido")]
+        public int N_Cuenta { get; set; }
+
+        // Si querés manejar relaciones con otras entidades:
+        // public Cuenta Cuenta { get; set; }
     }
-    public Tarjeta(int n_Tarjeta, string? tipo_Tarjeta, int ced_Cliente, DateTime fecha_Expira, int n_Seguridad, int? credito, int? saldo, int n_Cuenta)
-    {
-        _N_Tarjeta = n_Tarjeta;
-        _Tipo_Tarjeta = tipo_Tarjeta;
-        _ced_Cliente = ced_Cliente;
-        _Fecha_Expira = fecha_Expira;
-        _N_Seguridad = n_Seguridad;
-        _Credito = credito;
-        _Saldo = saldo;
-        _N_Cuenta = n_Cuenta;
-    }
-
-    #endregion
-
-    #region Variables Publicas
-
-    public int N_Tarjeta { get => _N_Tarjeta; set => _N_Tarjeta = value; }
-    public string Tipo_Tarjeta { get => _Tipo_Tarjeta; set => _Tipo_Tarjeta = value; }
-    public DateTime Fecha_Expira { get => _Fecha_Expira; set => _Fecha_Expira = value; }
-    public int N_Seguridad { get => _N_Seguridad; set => _N_Seguridad = value; }
-    public int N_Cuenta { get => _N_Cuenta; set => _N_Cuenta = value; }
-    public int? Credito { get => _Credito; set => _Credito = value; }
-    public int? Saldo { get => _Saldo; set => _Saldo = value; }
-    public int Ced_Cliente { get => _ced_Cliente; set => _ced_Cliente = value; }
-
-    #endregion
 }
