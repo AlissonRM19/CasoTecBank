@@ -28,7 +28,8 @@ namespace TecBankApi.Services
             _storage = storage;
 
             // Carga inicial de clientes; si no hay datos previos, se crea una nueva lista vacía.
-            _clientes = _storage.LoadData<List<Cliente>>().Result ?? new List<Cliente>();
+            _clientes = _storage.Clientes ?? new List<Cliente>();
+
         }
 
         /// <summary>

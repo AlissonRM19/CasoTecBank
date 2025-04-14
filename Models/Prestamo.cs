@@ -18,7 +18,7 @@ namespace TecBankApi.Models
         /// </summary>
         [Required(ErrorMessage = "El monto original es requerido")]
         [Range(1, int.MaxValue, ErrorMessage = "El monto debe ser mayor que 0")]
-        public int Monto_Original { get; set; }
+        public int Monto_Original { get; internal set; }
 
         /// <summary>
         /// Saldo pendiente del préstamo.
@@ -44,6 +44,10 @@ namespace TecBankApi.Models
         /// Cédula del asesor que gestionó el préstamo.
         /// </summary>
         [Required(ErrorMessage = "La cédula del asesor es requerida")]
-        public int Ced_Asesor { get; set; }
+        public int Ced_acesor { get; internal set; }
+        public DateTime FechaAprobacion { get; internal set; }
+
+        public required string Moneda { get; set; } // "CRC" o "USD"
+
     }
 }
