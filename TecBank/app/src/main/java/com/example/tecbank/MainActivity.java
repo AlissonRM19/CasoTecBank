@@ -14,6 +14,17 @@ import android.widget.EditText;
 
 import android.widget.ImageButton;
 
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText editTextMessage;
@@ -72,31 +83,84 @@ public class MainActivity extends AppCompatActivity {
 
         }).start();
 
-        buttonlogin.setOnClickListener(view -> {
-            String userEmail = ((EditText) findViewById(R.id.nombreusuario)).getText().toString();
-            String password = ((EditText) findViewById(R.id.password)).getText().toString();
-            //String usuario = editTextMessage.getText().toString();
-            //String contrasena = editTextPassword.getText().toString();
 
 
-            // Validar campos vacíos
-            if (userEmail.isEmpty()) {
-                marcarCampoTemporalmente(editTextMessage);
+
+
+
+        buttonlogin.setOnClickListener(v -> {
+            String usuario = editTextMessage.getText().toString().trim();
+            String password = editTextPassword.getText().toString().trim();
+
+            if (usuario.isEmpty() || password.isEmpty()) {
+                mostrarDialogo("Por favor, completa todos los campos.");
+                return;
             }
 
-            if (password.isEmpty()) {
-                marcarCampoTemporalmente(editTextPassword);
-            }
-
-            // Continuar con la lógica solo si ambos campos están llenos
-            if (!userEmail.isEmpty() && !password.isEmpty()) {
-                String messageSend = "func: login, " + "userEmail: " + userEmail + ", password: " + password;
-                //Socket.sendMessage(messageSend);
-            }
+            iniciarSesion(usuario, password);
         });
 
 
     }
+
+    private void iniciarSesion(String usuario, String password) {
+        OkHttpClient client = new OkHttpClient();
+        MediaType JSON = MediaType.get("application/json; charset=utf-8");
+
+        try {
+            JSONObject json = new JSONObject();
+            json.put("usuario", usuario);
+            json.put("password", password);
+
+            RequestBody body = RequestBody.create(json.toString(), JSON);
+            Request request = new Request.Builder()
+                    .url("http://45.63.12.34:5000/auth/login") // O usa el dominio de pruebas si lo necesitas
+                    .post(body)
+                    .build();
+
+            // Ejecutar en segundo plano
+            new Thread(() -> {
+                try (Response response = client.newCall(request).execute()) {
+                    String responseBody = response.body().string();
+
+                    JSONObject respuestaJson = new JSONObject(responseBody);
+                    boolean success = respuestaJson.getBoolean("success");
+
+                    if (success) {
+                        String token = respuestaJson.getString("token");
+
+                        // Puedes guardar el token si quieres usarlo después
+                        // y luego abrir otra actividad
+                        runOnUiThread(() -> {
+                            mostrarDialogo("Inicio de sesión exitoso");
+                            Intent intent = new Intent(MainActivity.this, vistacliente.class);
+                            intent.putExtra("TOKEN", token);
+                            startActivity(intent);
+                            finish();
+                        });
+                    } else {
+                        runOnUiThread(() -> mostrarDialogo("Credenciales inválidas"));
+                    }
+                } catch (Exception e) {
+                    Log.e("LOGIN_ERROR", "Error al iniciar sesión", e);
+                    runOnUiThread(() -> mostrarDialogo("Ocurrió un error. Inténtalo más tarde."));
+                }
+            }).start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarDialogo("Error al crear la solicitud");
+        }
+    }
+
+    private void mostrarDialogo(String mensaje) {
+        new AlertDialog.Builder(this)
+                .setTitle("TecBank")
+                .setMessage(mensaje)
+                .setPositiveButton("OK", null)
+                .show();
+    }
+
     // Método para cambiar el fondo de un campo a rojo temporalmente
     private void marcarCampoTemporalmente(EditText editText) {
         // Cambiar el fondo a rojo
@@ -107,8 +171,4 @@ public class MainActivity extends AppCompatActivity {
             editText.setBackgroundResource(android.R.color.white); // Reestablecer el color blanco
         }, 2000); // 2000 ms = 2 segundos
     }
-
-
-
-
 }

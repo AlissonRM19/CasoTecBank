@@ -31,6 +31,7 @@
         <!-- Declarar la actividad VistaCliente -->
         <activity android:name=".vistacliente"></activity>
 
+
     </application>
 
 </manifest>
