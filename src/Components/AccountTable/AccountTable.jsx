@@ -9,24 +9,28 @@ export const AccountTable = () => {
       name: "Número de Cuenta",
       selector: row => row.numeroCuenta,
       sortable: true,
-      wrap: true
+      wrap: true,
+      minWidth: "200px"
     },
     {
       name: "Descripción",
       selector: row => row.descripcion,
-      wrap: true
+      wrap: true,
+      minWidth: "190px"
     },
     {
       name: "Moneda",
       selector: row => row.moneda,
       sortable: true,
-      wrap: true
+      wrap: true,
+      minWidth: "120px"
     },
     {
       name: "Tipo de Cuenta",
       selector: row => row.tipoCuenta,
       sortable: true,
-      wrap: true
+      wrap: true,
+      minWidth: "170px"
     },
     {
       name: "Cliente",

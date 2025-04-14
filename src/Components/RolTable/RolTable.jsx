@@ -9,12 +9,14 @@ export const RolTable = () => {
       name: "Nombre",
       selector: row => row.nombre,
       sortable: true,
-      wrap: true
+      wrap: true,
+      minWidth: "190px"
     },
     {
       name: "Descripción",
       selector: row => row.descripción,
-      wrap: true
+      wrap: true,
+      minWidth: "190px"
     },
     {
       name: "Acciones",

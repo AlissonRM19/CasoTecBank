@@ -1,9 +1,9 @@
 import React from 'react';
 import '../RolTable/RolTable.css';
 import DataTable from 'react-data-table-component';
-import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaPlus, FaFileAlt } from 'react-icons/fa';
 
-export const ClientTable = () => {
+export const AdvisorTable = () => {
   const columns = [
     {
       name: "Nombre Completo",
@@ -17,45 +17,27 @@ export const ClientTable = () => {
       selector: row => row.cedula,
       sortable: true,
       wrap: true,
-      minWidth: "110px"
-    },
-    {
-      name: "Dirección",
-      selector: row => row.direccion,
-      wrap: true,
-      minWidth: "150px"
-    },
-    {
-      name: "Teléfono",
-      selector: row => row.telefono,
-      sortable: true,
-      wrap: true,
       minWidth: "120px"
     },
     {
-      name: "Ingreso Mensual",
-      selector: row => `$${row.ingresoMensual.toLocaleString()}`,
-      sortable: true,
+      name: "Fecha de Nacimiento",
+      selector: row => row.fechaNacimiento,
       wrap: true,
       minWidth: "190px"
     },
     {
-      name: "Tipo de Cliente",
-      selector: row => row.tipoCliente,
+      name: "Meta Ventas (₡)",
+      selector: row => `₡${row.metaColones.toLocaleString()}`,
       sortable: true,
       wrap: true,
-      minWidth: "190px"
+      minWidth: "180px"
     },
     {
-      name: "Usuario",
-      selector: row => row.usuario,
-      wrap: true
-    },
-    {
-      name: "Contraseña",
-      selector: row => row.password,
+      name: "Meta Ventas ($)",
+      selector: row => `$${row.metaDolares.toLocaleString()}`,
+      sortable: true,
       wrap: true,
-      minWidth: "120px"
+      minWidth: "180px"
     },
     {
       name: "Acciones",
@@ -70,35 +52,35 @@ export const ClientTable = () => {
 
   const data = [
     {
-      nombreCompleto: "Juan Carlos Pérez Jiménez",
-      cedula: "1-2345-6789",
-      direccion: "Av. Central, San José",
-      telefono: "8888-1234",
-      ingresoMensual: 1500,
-      tipoCliente: "Físico",
-      usuario: "juanperez",
-      password: "123456"
+      nombreCompleto: "Laura Martínez",
+      cedula: "2-1345-6789",
+      fechaNacimiento: "1990-03-15",
+      metaColones: 3000000,
+      metaDolares: 5000
     },
     {
-      nombreCompleto: "Empresa XYZ S.A.",
-      cedula: "3-101-456789",
-      direccion: "Parque Empresarial, Heredia",
-      telefono: "2222-3344",
-      ingresoMensual: 25000,
-      tipoCliente: "Jurídico",
-      usuario: "empresa_xyz",
-      password: "emp2024"
+      nombreCompleto: "Carlos Gómez",
+      cedula: "1-2456-7890",
+      fechaNacimiento: "1985-07-22",
+      metaColones: 4500000,
+      metaDolares: 7000
     }
   ];
 
   return (
     <div className="table-wrapper">
       <div className="table-header">
-        <h2 className="table-title">Clientes</h2>
-        <button className="add-button">
-          <FaPlus style={{ marginRight: "8px" }} />
-          Agregar Cliente
-        </button>
+        <h2 className="table-title">Asesores</h2>
+        <div className="table-actions">
+          <button className="add-button">
+            <FaPlus style={{ marginRight: "8px" }} />
+            Agregar Asesor
+          </button>
+          <button className="report-button">
+            <FaFileAlt style={{ marginRight: "8px" }} />
+            Generar Reporte
+          </button>
+        </div>
       </div>
       <DataTable
         columns={columns}

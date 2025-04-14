@@ -1,9 +1,9 @@
 import React from 'react';
 import '../RolTable/RolTable.css';
 import DataTable from 'react-data-table-component';
-import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaFileAlt, FaPlus } from 'react-icons/fa';
 
-export const ClientTable = () => {
+export const PaymentTable = () => {
   const columns = [
     {
       name: "Nombre Completo",
@@ -17,45 +17,28 @@ export const ClientTable = () => {
       selector: row => row.cedula,
       sortable: true,
       wrap: true,
-      minWidth: "110px"
-    },
-    {
-      name: "Dirección",
-      selector: row => row.direccion,
-      wrap: true,
-      minWidth: "150px"
-    },
-    {
-      name: "Teléfono",
-      selector: row => row.telefono,
-      sortable: true,
-      wrap: true,
       minWidth: "120px"
     },
     {
-      name: "Ingreso Mensual",
-      selector: row => `$${row.ingresoMensual.toLocaleString()}`,
+      name: "Número de Préstamo",
+      selector: row => row.numeroPrestamo,
+      sortable: true,
+      wrap: true,
+      minWidth: "210px"
+    },
+    {
+      name: "Cuotas Vencidas",
+      selector: row => row.cuotasVencidas,
+      sortable: true,
+      wrap: true,
+      minWidth: "180px"
+    },
+    {
+      name: "Monto Adeudado",
+      selector: row => `₡${row.montoAdeudado.toLocaleString()}`,
       sortable: true,
       wrap: true,
       minWidth: "190px"
-    },
-    {
-      name: "Tipo de Cliente",
-      selector: row => row.tipoCliente,
-      sortable: true,
-      wrap: true,
-      minWidth: "190px"
-    },
-    {
-      name: "Usuario",
-      selector: row => row.usuario,
-      wrap: true
-    },
-    {
-      name: "Contraseña",
-      selector: row => row.password,
-      wrap: true,
-      minWidth: "120px"
     },
     {
       name: "Acciones",
@@ -70,35 +53,35 @@ export const ClientTable = () => {
 
   const data = [
     {
-      nombreCompleto: "Juan Carlos Pérez Jiménez",
-      cedula: "1-2345-6789",
-      direccion: "Av. Central, San José",
-      telefono: "8888-1234",
-      ingresoMensual: 1500,
-      tipoCliente: "Físico",
-      usuario: "juanperez",
-      password: "123456"
+      nombreCompleto: "Andrea Solano Mora",
+      cedula: "1-1234-5678",
+      numeroPrestamo: "PRE-00123",
+      cuotasVencidas: 2,
+      montoAdeudado: 85000
     },
     {
-      nombreCompleto: "Empresa XYZ S.A.",
-      cedula: "3-101-456789",
-      direccion: "Parque Empresarial, Heredia",
-      telefono: "2222-3344",
-      ingresoMensual: 25000,
-      tipoCliente: "Jurídico",
-      usuario: "empresa_xyz",
-      password: "emp2024"
+      nombreCompleto: "Luis Rodríguez Vargas",
+      cedula: "2-2345-6789",
+      numeroPrestamo: "PRE-00145",
+      cuotasVencidas: 3,
+      montoAdeudado: 132500
     }
   ];
 
   return (
     <div className="table-wrapper">
       <div className="table-header">
-        <h2 className="table-title">Clientes</h2>
-        <button className="add-button">
-          <FaPlus style={{ marginRight: "8px" }} />
-          Agregar Cliente
-        </button>
+        <h2 className="table-title">Gestión de Mora</h2>
+        <div className="table-actions">
+            <button className="add-button">
+                <FaPlus style={{ marginRight: "8px" }} />
+                Agregar Mora
+            </button>
+            <button className="report-button">
+                <FaFileAlt style={{ marginRight: "8px" }} />
+                Generar Reporte
+            </button>
+        </div>
       </div>
       <DataTable
         columns={columns}

@@ -4,7 +4,14 @@ import { Tabs, Tab, Container } from 'react-bootstrap';
 import { RolTable } from '../Components/RolTable/RolTable';
 import { ClientTable } from '../Components/ClientTable/ClientTable';
 import { AccountTable } from  '../Components/AccountTable/AccountTable';
-import { FaUserShield, FaUsers, FaMoneyCheckAlt } from 'react-icons/fa'; // íconos
+import { CardTable } from  '../Components/CardTable/CardTable';
+import { AdvisorTable } from  '../Components/AdvisorTable/AdvisorTable';
+import { PaymentTable } from  '../Components/PaymentTable/PaymentTable';
+import LoanTable from  '../Components/LoanTable/LoanTable';
+import { FaUserShield, FaUsers, FaMoneyCheckAlt, FaMoneyBillWave } from 'react-icons/fa'; // íconos
+import { FaClipboardUser, FaUserTie, FaMoneyBillTransfer   } from "react-icons/fa6";
+
+
 
 const AdminDashboard = () => {
   return(
@@ -33,8 +40,20 @@ const AdminDashboard = () => {
         >
           <ClientTable />
         </Tab>
-        <Tab eventKey="accounts" title={<><FaMoneyCheckAlt className="me-2" />Cuentas</>}>
+        <Tab eventKey="accounts" title={<><FaClipboardUser className="me-2" />Cuentas</>}>
           <AccountTable />
+        </Tab>
+        <Tab eventKey="cards" title={<><FaMoneyCheckAlt className="me-2" />Tarjetas</>}>
+          <CardTable />
+        </Tab>
+        <Tab eventKey="advisor" title={<><FaUserTie  className="me-2" />Asesores</>}>
+          <AdvisorTable />
+        </Tab>
+        <Tab eventKey="payment" title={<><FaMoneyBillWave  className="me-2" />Morosidades</>}>
+          <PaymentTable />
+        </Tab>
+        <Tab eventKey="loan" title={<><FaMoneyBillTransfer className="me-2" />Préstamos</>}>
+          <LoanTable />
         </Tab>
       </Tabs>
     </Container>

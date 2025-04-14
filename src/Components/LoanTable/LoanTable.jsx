@@ -3,59 +3,42 @@ import '../RolTable/RolTable.css';
 import DataTable from 'react-data-table-component';
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 
-export const ClientTable = () => {
+const LoanTable = () => {
   const columns = [
     {
-      name: "Nombre Completo",
-      selector: row => row.nombreCompleto,
-      sortable: true,
-      wrap: true,
-      minWidth: "190px"
-    },
-    {
-      name: "Cédula",
-      selector: row => row.cedula,
-      sortable: true,
-      wrap: true,
-      minWidth: "110px"
-    },
-    {
-      name: "Dirección",
-      selector: row => row.direccion,
-      wrap: true,
-      minWidth: "150px"
-    },
-    {
-      name: "Teléfono",
-      selector: row => row.telefono,
+      name: "Cliente",
+      selector: row => row.cliente,
       sortable: true,
       wrap: true,
       minWidth: "120px"
     },
     {
-      name: "Ingreso Mensual",
-      selector: row => `$${row.ingresoMensual.toLocaleString()}`,
+      name: "Monto Original",
+      selector: row => `$${row.montoOriginal.toLocaleString()}`,
       sortable: true,
       wrap: true,
-      minWidth: "190px"
+      minWidth: "180px"
     },
     {
-      name: "Tipo de Cliente",
-      selector: row => row.tipoCliente,
+      name: "Saldo Actual",
+      selector: row => `$${row.saldo.toLocaleString()}`,
       sortable: true,
       wrap: true,
-      minWidth: "190px"
+      minWidth: "180px"
     },
     {
-      name: "Usuario",
-      selector: row => row.usuario,
-      wrap: true
-    },
-    {
-      name: "Contraseña",
-      selector: row => row.password,
+      name: "Tasa de Interés",
+      selector: row => `${row.interes}%`,
+      sortable: true,
       wrap: true,
-      minWidth: "120px"
+      minWidth: "180px"
+    },
+    {
+      name: "Pagos Realizados",
+      selector: row => row.pagos.length,
+      sortable: true,
+      wrap: true,
+      minWidth: "180px"
     },
     {
       name: "Acciones",
@@ -70,34 +53,33 @@ export const ClientTable = () => {
 
   const data = [
     {
-      nombreCompleto: "Juan Carlos Pérez Jiménez",
-      cedula: "1-2345-6789",
-      direccion: "Av. Central, San José",
-      telefono: "8888-1234",
-      ingresoMensual: 1500,
-      tipoCliente: "Físico",
-      usuario: "juanperez",
-      password: "123456"
+      cliente: "Ana López",
+      montoOriginal: 10000,
+      saldo: 6800,
+      interes: 12,
+      pagos: [
+        { fecha: "2024-01-15", monto: 1000, tipo: "normal" },
+        { fecha: "2024-02-15", monto: 1200, tipo: "extraordinario" }
+      ]
     },
     {
-      nombreCompleto: "Empresa XYZ S.A.",
-      cedula: "3-101-456789",
-      direccion: "Parque Empresarial, Heredia",
-      telefono: "2222-3344",
-      ingresoMensual: 25000,
-      tipoCliente: "Jurídico",
-      usuario: "empresa_xyz",
-      password: "emp2024"
+      cliente: "Carlos Ramírez",
+      montoOriginal: 5000,
+      saldo: 4800,
+      interes: 10,
+      pagos: [
+        { fecha: "2024-03-01", monto: 200, tipo: "normal" }
+      ]
     }
   ];
 
   return (
     <div className="table-wrapper">
       <div className="table-header">
-        <h2 className="table-title">Clientes</h2>
+        <h2 className="table-title">Préstamos</h2>
         <button className="add-button">
           <FaPlus style={{ marginRight: "8px" }} />
-          Agregar Cliente
+          Agregar Préstamo
         </button>
       </div>
       <DataTable
@@ -144,3 +126,5 @@ export const ClientTable = () => {
     </div>
   );
 };
+
+export default LoanTable;

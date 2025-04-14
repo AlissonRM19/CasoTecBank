@@ -3,59 +3,41 @@ import '../RolTable/RolTable.css';
 import DataTable from 'react-data-table-component';
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 
-export const ClientTable = () => {
+export const CardTable = () => {
   const columns = [
     {
-      name: "Nombre Completo",
-      selector: row => row.nombreCompleto,
+      name: "Número de Tarjeta",
+      selector: row => row.numeroTarjeta,
       sortable: true,
       wrap: true,
       minWidth: "190px"
     },
     {
-      name: "Cédula",
-      selector: row => row.cedula,
-      sortable: true,
-      wrap: true,
-      minWidth: "110px"
-    },
-    {
-      name: "Dirección",
-      selector: row => row.direccion,
-      wrap: true,
-      minWidth: "150px"
-    },
-    {
-      name: "Teléfono",
-      selector: row => row.telefono,
-      sortable: true,
-      wrap: true,
-      minWidth: "120px"
-    },
-    {
-      name: "Ingreso Mensual",
-      selector: row => `$${row.ingresoMensual.toLocaleString()}`,
+      name: "Tipo de Tarjeta",
+      selector: row => row.tipoTarjeta,
       sortable: true,
       wrap: true,
       minWidth: "190px"
     },
     {
-      name: "Tipo de Cliente",
-      selector: row => row.tipoCliente,
-      sortable: true,
+      name: "Fecha de Expiración",
+      selector: row => row.fechaExpiracion,
       wrap: true,
       minWidth: "190px"
     },
     {
-      name: "Usuario",
-      selector: row => row.usuario,
-      wrap: true
+      name: "Código de Seguridad",
+      selector: row => row.codigoSeguridad,
+      sortable: true,
+      wrap: true,
+      minWidth: "210px"
     },
     {
-      name: "Contraseña",
-      selector: row => row.password,
+      name: "Saldo / Crédito Disponible",
+      selector: row => `$${row.disponible.toLocaleString()}`,
+      sortable: true,
       wrap: true,
-      minWidth: "120px"
+      minWidth: "250px"
     },
     {
       name: "Acciones",
@@ -70,34 +52,28 @@ export const ClientTable = () => {
 
   const data = [
     {
-      nombreCompleto: "Juan Carlos Pérez Jiménez",
-      cedula: "1-2345-6789",
-      direccion: "Av. Central, San José",
-      telefono: "8888-1234",
-      ingresoMensual: 1500,
-      tipoCliente: "Físico",
-      usuario: "juanperez",
-      password: "123456"
+      numeroTarjeta: "1234 5678 9012 3456",
+      tipoTarjeta: "Débito",
+      fechaExpiracion: "08/27",
+      codigoSeguridad: "123",
+      disponible: 1500
     },
     {
-      nombreCompleto: "Empresa XYZ S.A.",
-      cedula: "3-101-456789",
-      direccion: "Parque Empresarial, Heredia",
-      telefono: "2222-3344",
-      ingresoMensual: 25000,
-      tipoCliente: "Jurídico",
-      usuario: "empresa_xyz",
-      password: "emp2024"
+      numeroTarjeta: "9876 5432 1098 7654",
+      tipoTarjeta: "Crédito",
+      fechaExpiracion: "12/25",
+      codigoSeguridad: "789",
+      disponible: 5000
     }
   ];
 
   return (
     <div className="table-wrapper">
       <div className="table-header">
-        <h2 className="table-title">Clientes</h2>
+        <h2 className="table-title">Tarjetas</h2>
         <button className="add-button">
           <FaPlus style={{ marginRight: "8px" }} />
-          Agregar Cliente
+          Agregar Tarjeta
         </button>
       </div>
       <DataTable
