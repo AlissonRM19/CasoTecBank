@@ -61,7 +61,7 @@ namespace TecBankApi.Services
         /// <param name="desde">Fecha de inicio del rango</param>
         /// <param name="hasta">Fecha de fin del rango</param>
         /// <returns>Lista de compras ordenadas por fecha descendente</returns>
-        public async Task<List<CompraTarjeta>> ObtenerComprasPorTarjeta(string numeroTarjeta, DateTime desde, DateTime hasta)
+        public async Task<List<CompraTarjeta>> ObtenerComprasPorTarjeta(int numeroTarjeta, DateTime desde, DateTime hasta)
         {
             return await Task.FromResult(
                 _compras

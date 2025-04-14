@@ -16,7 +16,7 @@ namespace TecBankApi.Models
         // Se requiere y debe tener formato válido de tarjeta de crédito
         [Required(ErrorMessage = "Número de tarjeta requerido")]
         [CreditCard(ErrorMessage = "Número de tarjeta inválido")]
-        public string NumeroTarjeta { get; set; } = string.Empty;
+        public int NumeroTarjeta { get; set; }
 
         // Monto de la compra
         // Se requiere y debe ser al menos 0.01

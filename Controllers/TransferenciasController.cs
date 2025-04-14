@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using TecBankApi.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using TecBankApi.Services;
 
 namespace TecBankApi.Controllers
 {
@@ -9,9 +10,9 @@ namespace TecBankApi.Controllers
     [ApiController]
     public class TransferenciaController : ControllerBase
     {
-        private readonly DbContext _context;
+        private readonly TransferenciaService _context;
 
-        public TransferenciaController(DbContext context)
+        public TransferenciaController(TransferenciaService context)
         {
             _context = context;
         }
@@ -20,7 +21,7 @@ namespace TecBankApi.Controllers
         [HttpGet]
         public IActionResult GetTransferencias()
         {
-            var transferencias = _context.Transferencias.ToList();
+            var transferencias = _context.ObtenerTodas();
             return Ok(transferencias);
         }
 
@@ -28,7 +29,7 @@ namespace TecBankApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetTransferencia(int id)
         {
-            var transferencia = _context.Transferencias.Find(id);
+            var transferencia = _context.ObtenerPorId(id);
             if (transferencia == null)
             {
                 return NotFound();
@@ -45,23 +46,21 @@ namespace TecBankApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Transferencias.Add(transferencia);
-            _context.SaveChanges();
+            _context.AgregarTransferencia(transferencia);
 
-            return CreatedAtAction(nameof(GetTransferencia), new { id = transferencia.ID_transferencia }, transferencia);
+            return CreatedAtAction(nameof(GetTransferencia), new { id = transferencia.ID_Transferencia }, transferencia);
         }
 
         // PUT: api/Transferencia/5
         [HttpPut("{id}")]
         public IActionResult PutTransferencia(int id, Transferencia transferencia)
         {
-            if (id != transferencia.ID_transferencia)
+            if (id != transferencia.ID_Transferencia)
             {
                 return BadRequest();
             }
 
-            _context.Entry(transferencia).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            _context.SaveChanges();
+            //_context.Entry(transferencia).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 
             return NoContent();
         }
@@ -70,14 +69,13 @@ namespace TecBankApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteTransferencia(int id)
         {
-            var transferencia = _context.Transferencias.Find(id);
+            var transferencia = _context.ObtenerPorId(id);
             if (transferencia == null)
             {
                 return NotFound();
             }
 
-            _context.Transferencias.Remove(transferencia);
-            _context.SaveChanges();
+            _context.EliminarTransferencia(id);
 
             return NoContent();
         }

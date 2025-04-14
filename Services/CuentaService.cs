@@ -48,7 +48,7 @@ public class CuentaService
     /// <summary>
     /// Realiza una operación de ingreso o retiro sobre una cuenta específica
     /// </summary>
-    public async Task<decimal?> RealizarOperacion(int cuentaId, decimal monto)
+    public async Task<decimal?> RealizarOperacion(int cuentaId, decimal monto, string v)
     {
         var cuenta = Cuentas.FirstOrDefault(c => c.CuentaId == cuentaId);
         if (cuenta == null) return null;

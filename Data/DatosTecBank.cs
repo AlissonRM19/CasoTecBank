@@ -26,6 +26,7 @@ namespace TecBankApi.Data
         // Lista de asesores de crédito que gestionan préstamos y clientes
         public List<AsesorCredito> Asesores { get; set; } = new List<AsesorCredito>();
         public List<CompraTarjeta> ComprasTarjeta { get; set; } = new();
+        public List<Transferencia> transferencias { get; set; } = new();
 
 
         // Lista de roles del sistema (Admin, Asesor, etc.)

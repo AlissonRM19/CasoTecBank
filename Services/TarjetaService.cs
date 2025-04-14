@@ -179,6 +179,25 @@ namespace TecBankApi.Services
                 return false;
             }
         }
+        /// <summary>
+        /// Verifica si una tarjeta con el número especificado existe en el sistema.
+        /// </summary>
+        public async Task<bool> TarjetaExiste(int numeroTarjeta)
+        {
+            return await Task.FromResult(
+                _tarjetas.Any(t => t.N_Tarjeta == numeroTarjeta)
+            );
+        }
+        /// <summary>
+        /// Verifica si la tarjeta especificada pertenece al cliente dado.
+        /// </summary>
+        public async Task<bool> ValidarPropietarioTarjeta(int numeroTarjeta, int clienteId)
+        {
+            return await Task.FromResult(
+                _tarjetas.Any(t => t.N_Tarjeta == numeroTarjeta && t.Ced_Cliente == clienteId)
+            );
+        }
+
     }
 
     // Atributo de validación personalizado para asegurar que la fecha sea futura
@@ -189,4 +208,5 @@ namespace TecBankApi.Services
             return value is DateTime date && date > DateTime.Now.Date;
         }
     }
+
 }

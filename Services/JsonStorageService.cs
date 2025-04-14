@@ -7,7 +7,7 @@ namespace TecBankApi.Services
     /// <summary>
     /// Servicio responsable de cargar y guardar los datos de la aplicación desde/hacia un archivo JSON.
     /// </summary>
-    public class JsonStorageService
+    public class JsonStorageService : IHostedService
     {
         private readonly string _filePath;         // Ruta del archivo JSON donde se almacenan los datos
         private DatosTecBank _datos;               // Objeto que representa todos los datos de la aplicación
@@ -66,6 +66,7 @@ namespace TecBankApi.Services
         public List<AsesorCredito> Asesores => _datos.Asesores;
         public List<Rol> Roles => _datos.Roles;
         public List<CompraTarjeta> ComprasTarjeta => _datos.ComprasTarjeta;
+        public List<Transferencia> transferencias => _datos.transferencias;
 
 
         // Propiedades para acceder y modificar el tipo de cambio
@@ -104,5 +105,14 @@ namespace TecBankApi.Services
             await GuardarDatos();
         }
 
+        public Task StartAsync(CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

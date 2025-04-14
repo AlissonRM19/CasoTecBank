@@ -83,7 +83,7 @@ namespace TecBankApi.Controllers
             var resultado = await _cuentaService.RealizarOperacion(id, monto, "Deposito");
 
             // Si se encuentra la cuenta, retornar el nuevo saldo
-            return resultado
+            return (resultado!=null)
                 ? Ok(new { success = true, nuevoSaldo = resultado.Value })
                 : NotFound(new { success = false, message = "Cuenta no encontrada" });
         }

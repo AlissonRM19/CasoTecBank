@@ -62,7 +62,7 @@ namespace TecBankApi.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(prestamo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            //_context.Entry(prestamo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
 
             return NoContent();

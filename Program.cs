@@ -6,6 +6,8 @@ using TecBankApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Configuración de servicios
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -73,7 +75,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Registrar servicios personalizados
-builder.Services.AddSingleton<JsonStorageService>();
+builder.Services.AddHostedService<JsonStorageService>();
 builder.Services.AddSingleton<ClienteService>();
 builder.Services.AddSingleton<CuentaService>();
 builder.Services.AddSingleton<TarjetaService>();
@@ -81,9 +83,11 @@ builder.Services.AddSingleton<MovimientoService>();
 builder.Services.AddSingleton<AsesorService>();
 builder.Services.AddSingleton<PrestamoService>();
 builder.Services.AddSingleton<AuthService>();
-builder.Services.AddHostedService<ReporteService>();
+builder.Services.AddSingleton<ReporteService>();
+
 
 var app = builder.Build();
+app.UseCors(c => c.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
 // Configurar pipeline HTTP
 if (app.Environment.IsDevelopment())

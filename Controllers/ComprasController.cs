@@ -61,7 +61,7 @@ namespace TecBankApi.Controllers
         [HttpGet("{numeroTarjeta}")] // Ruta GET: api/compras/{numeroTarjeta}?desde=...&hasta=...
         [Authorize] // Requiere autenticación
         public async Task<IActionResult> ObtenerCompras(
-            string numeroTarjeta,
+            int numeroTarjeta,
             [FromQuery] DateTime desde,
             [FromQuery] DateTime hasta)
         {
