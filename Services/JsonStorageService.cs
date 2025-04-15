@@ -107,8 +107,9 @@ namespace TecBankApi.Services
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
+
 
         public Task StopAsync(CancellationToken cancellationToken)
         {

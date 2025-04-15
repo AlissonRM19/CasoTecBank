@@ -75,6 +75,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Registrar servicios personalizados
+builder.Services.AddSingleton<JsonStorageService>();
 builder.Services.AddHostedService<JsonStorageService>();
 builder.Services.AddSingleton<ClienteService>();
 builder.Services.AddSingleton<CuentaService>();

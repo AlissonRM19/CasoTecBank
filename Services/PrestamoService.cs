@@ -60,7 +60,7 @@ namespace TecBankApi.Services
 
         public void ActualizarPrestamo(Prestamo actualizado)
         {
-            var existente = Find(actualizado.Id_Prestamo);
+            var existente = ObtenerPorId(actualizado.Id_Prestamo);
             if (existente != null)
             {
                 existente.Saldo = actualizado.Saldo;
