@@ -31,6 +31,12 @@
         <!-- Declarar la actividad VistaCliente -->
         <activity android:name=".vistacliente"></activity>
 
+        <activity android:name=".VistaCuentas" />
+
+        <activity android:name=".VistaTarjetas" />
+
+        <activity android:name=".VistaPrestamos" />
+
 
     </application>
 

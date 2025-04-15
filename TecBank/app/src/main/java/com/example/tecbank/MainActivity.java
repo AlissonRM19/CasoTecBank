@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        buttonlogin.setOnClickListener(v -> {
+       /* buttonlogin.setOnClickListener(v -> {
             String usuario = editTextMessage.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
 
@@ -98,6 +98,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             iniciarSesion(usuario, password);
+        });*/
+
+        //Button buttonlogin = findViewById(R.id.login);
+        buttonlogin.setOnClickListener(view -> {
+            // Aquí pasamos directo a la vista cliente sin validar
+            Intent intent = new Intent(MainActivity.this, vistacliente.class);
+            startActivity(intent);
+            finish(); // Opcional: para que no pueda volver al login con "atrás"
         });
 
 
