@@ -79,7 +79,7 @@ export const CardsUser = () => {
       <div className="table-header">
         <h2 className="table-title">Tarjetas</h2>
         <button className="add-button">
-          <FaDollarSign style={{ marginRight: "8px" }} />
+          <FaDollarSign style={{ marginRight: "8px"}} />
           Pago Tarjeta Credito
         </button>
       </div>

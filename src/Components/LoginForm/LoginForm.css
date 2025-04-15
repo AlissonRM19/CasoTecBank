@@ -98,3 +98,12 @@
 .register-link p s :hover {
     text-decoration: underline;
 }
+
+.error-message {
+    color: rgb(141, 3, 3);
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
